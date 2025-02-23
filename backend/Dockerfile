@@ -34,3 +34,16 @@ EXPOSE 7000
 CMD ["./main"]
 
 # END
+
+# RUN : docker image prune : After building your image, use this command to remove unused intermediate images eg : <none>
+# RUN :  docker run -p 7000:7000 <name>:<version>
+#  eg : docker build -t ashkrai/backend:0.4 .       docker run -p 7000:7000 ashkrai/backend:0.4
+
+# NOTES
+# In the Dockerfile you provided, you're using a multi-stage build, where two images are involved:
+# Stage1 : The build image (golang:1.24): This is used to compile your Go code.
+# Stage2 : The final image (ubuntu:22.04): This is used to package and run your Go binary in a smaller, production-ready image.
+# The <none> image is an intermediate image created during a multi-stage build, used only for compiling your Go app.
+#     It doesn't affect the final image and can be safely deleted.
+
+

@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: connect-backend-deployment
+  labels:
+    app: connect-backend
+spec:
+  replicas: 1  # You can adjust this number as needed
+  selector:
+    matchLabels:
+      app: connect-backend
+  template:
+    metadata:
+      labels:
+        app: connect-backend
+    spec:
+      containers:
+      - name: connect-backend
+        image: connect-backend:latest  # Local image reference
+        ports:
+        - containerPort: 7000  # Your app is running on port 7000

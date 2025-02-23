@@ -1,0 +1,29 @@
+# Build output
+/bin/
+/obj/
+/out/
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.a
+*.o
+*.test
+
+# Dependency directories (this is for vendoring, not the `go.mod` or `go.sum` files)
+# /vendor/
+
+# IDE or editor settings (e.g., VS Code, JetBrains)
+.vscode/
+.idea/
+
+# macOS system files
+.DS_Store
+
+# Linux system files
+*~
+
+# Windows system files
+Thumbs.db
+Desktop.ini

@@ -1,3 +1,4 @@
+# DEPLOYMENT
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -14,6 +15,22 @@ spec:
     spec:
       containers:
         - name: backend
-          image: your-dockerhub-username/backend:latest
+          image: ashkrai/backend:0.4.1
+          imagePullPolicy: IfNotPresent  # Ensure the image isn't pulled unnecessarily
           ports:
             - containerPort: 7000
+     
+---
+# SERVICE 
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-service
+spec:
+  selector:
+    app: backend
+  ports:
+    - protocol: TCP
+      port: 7000
+      targetPort: 7000
+  type: ClusterIP

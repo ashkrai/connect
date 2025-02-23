@@ -1,3 +1,7 @@
+# In YAML files, the --- (three hyphens) is used to separate multiple documents within a single YAML file.
+
+
+# DEPLOYMENT
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -14,7 +18,21 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: your-dockerhub-username/frontend:latest  # Make sure to update with the correct image name
+          image: ashkrai/frontend:0.4.1  # Make sure to update with the correct image name
           ports:
             - containerPort: 3000  # Port exposed by the React app (default port for `npm start`)
 
+---
+# SERVICE
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend-service
+spec:
+  selector:
+    app: frontend
+  ports:
+    - protocol: TCP
+      port: 3000  # The port to be exposed for the service (can be accessed externally) eg : 80 
+      targetPort: 3000  # Port on which the frontend container is running
+  type: ClusterIP  # Exposing within the cluster

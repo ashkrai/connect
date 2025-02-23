@@ -1,0 +1,33 @@
+docker build -t your-dockerhub-username/backend:latest .
+
+docker run -p 7000:7000 <backend image id>
+
+docker push your-dockerhub-username/backend:latest
+
+docker push ashkrai/backend:0.4.1
+
+
+
+------------------------------------------------------------------------------------
+
+docker build -t your-dockerhub-username/frontend:latest .
+
+docker run -p 3000:3000 <frontend image id >
+
+docker push your-dockerhub-username/frontend:latest
+
+docker push ashkrai/frontend:0.4.1
+
+------------------------------------------------------------------------------------
+
+kubectl port-forward svc/backend-service 7000:7000
+kubectl port-forward svc/frontend-service 3000:3000
+
+------------------------------------------------------------------------------------
+
+
+kubectl apply -f k8s-specifications/frontend-deployment.yaml
+kubectl apply -f k8s-specifications/backend-deployment.yaml
+kubectl apply -f k8s-specifications/frontend-service.yaml
+kubectl apply -f k8s-specifications/backend-service.yaml
+------------------------------------------------------------------------------------

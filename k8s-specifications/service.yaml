@@ -7,6 +7,6 @@ spec:
     app: hello-world
   ports:
     - protocol: TCP
-      port: 80
-      targetPort: 7000
+      port: 80  # Exposing port 80 on the service
+      targetPort: 7000  # Ensure this matches the container port
   type: ClusterIP

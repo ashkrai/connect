@@ -32,3 +32,5 @@ EXPOSE 7000
 
 # Command to run the Go application
 CMD ["./main"]
+
+# END

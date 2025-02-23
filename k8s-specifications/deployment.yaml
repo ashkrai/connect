@@ -1,21 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: connect-backend-deployment
-  labels:
-    app: connect-backend
+  name: hello-world-deployment
 spec:
-  replicas: 1  # You can adjust this number as needed
+  replicas: 1
   selector:
     matchLabels:
-      app: connect-backend
+      app: hello-world
   template:
     metadata:
       labels:
-        app: connect-backend
+        app: hello-world
     spec:
       containers:
-      - name: connect-backend
-        image: connect-backend:latest  # Local image reference
-        ports:
-        - containerPort: 7000  # Your app is running on port 7000
+        - name: hello-world
+          image: ashkrai/hello-world:0.1  # Replace with your Docker Hub image
+          ports:
+            - containerPort: 7000

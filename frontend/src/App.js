@@ -12,7 +12,7 @@ function App() {
     setError(null); // Reset error on new request
 
     try {
-      const response = await fetch('http://ashwani.store:7000/random-number');
+      const response = await fetch('http://localhost:7000/random-number');
       
       // Handle errors if the backend doesn't respond correctly
       if (!response.ok) {
